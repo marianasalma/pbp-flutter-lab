@@ -33,10 +33,14 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String _text = 'GENAP';
   bool genap = true;
+  bool isNotZero = false;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
+      if (_counter>0) {
+        isNotZero = true;
+      }
       if (_counter % 2 == 0) {
         _text = 'GENAP';
         genap=true;
@@ -50,6 +54,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void _decrementCounter() {
     setState(() {
       _counter--;
+      if (_counter==0) {
+        isNotZero = false;
+      }
       if (_counter % 2 == 0) {
         _text = 'GENAP';
         genap=true;
@@ -80,10 +87,12 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                Visibility(visible: isNotZero, child: 
                 FloatingActionButton(
                   onPressed: _decrementCounter,
                   tooltip: 'Decrement',
                   child: const Icon(Icons.remove),
+                )
                 ),
                 const SizedBox(width: 100),
                 FloatingActionButton(
