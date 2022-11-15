@@ -1,4 +1,6 @@
-# Tugas 7
+# README Tugas
+
+## Tugas 7
 
 **Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget dan jelaskan perbedaan dari keduanya.**
 Stateless widget merupakan widget yang tidak berubah pada interface, seperti Text atau Icon. Stateful widget merupkan widget yang bisa berubah jika user berinteraksi dengan widget tersebut.
@@ -21,3 +23,5 @@ Objek const harus diassign ke sebuah data yang sudah ada pada saat compiling, se
 - Membuat fungsi increment dan decrement untuk counter.
 - Menambahkan Text dan color menggunakan TextStyle untuk warna merah jika genap dan biru jika ganjil.
 - Menambahkan FloatingActionButton yang menyambung ke fungsi increment/decrement jika onPressed.
+
+## Tugas 8

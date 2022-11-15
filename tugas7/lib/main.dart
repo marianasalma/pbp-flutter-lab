@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 
+import 'form.dart';
+
 void main() {
   runApp(const MyApp());
 }
+
+class Budget {
+  final String judul;
+  final String nominal;
+  final String? jenis;
+
+  const Budget(this.judul, this.nominal, this.jenis);
+}
+
+List<Budget> listBudget = [];
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,15 +27,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Program Counter'),
+      home: MyHomePage(title: 'Program Counter', listBudget: listBudget),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  MyHomePage({super.key, required this.title, required this.listBudget});
 
   final String title;
+  List<Budget> listBudget;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -38,15 +51,15 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     setState(() {
       _counter++;
-      if (_counter>0) {
+      if (_counter > 0) {
         isNotZero = true;
       }
       if (_counter % 2 == 0) {
         _text = 'GENAP';
-        genap=true;
+        genap = true;
       } else {
         _text = 'GANJIL';
-        genap=false;
+        genap = false;
       }
     });
   }
@@ -54,15 +67,15 @@ class _MyHomePageState extends State<MyHomePage> {
   void _decrementCounter() {
     setState(() {
       _counter--;
-      if (_counter==0) {
+      if (_counter == 0) {
         isNotZero = false;
       }
       if (_counter % 2 == 0) {
         _text = 'GENAP';
-        genap=true;
+        genap = true;
       } else {
         _text = 'GANJIL';
-        genap=false;
+        genap = false;
       }
     });
   }
@@ -73,11 +86,62 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      // Menambahkan drawer menu
+      drawer: Drawer(
+        child: Column(
+          children: [
+            // Menambahkan clickable menu
+            ListTile(
+              title: const Text('Counter'),
+              onTap: () {
+                // Route menu ke halaman utama
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyHomePage(
+                            title: 'Program Counter',
+                            listBudget: widget.listBudget,
+                          )),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Tambah Budget'),
+              onTap: () {
+                // Route menu ke halaman form
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyFormPage(
+                            listBudget: widget.listBudget,
+                          )),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Data Budget'),
+              onTap: () {
+                // Route menu ke halaman utama
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyDataPage(
+                            listBudget: widget.listBudget,
+                          )),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(_text, style: TextStyle(color: genap==true?Colors.red:Colors.blue),),
+            Text(
+              _text,
+              style: TextStyle(color: genap == true ? Colors.red : Colors.blue),
+            ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
@@ -87,13 +151,13 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Visibility(visible: isNotZero, child: 
-                FloatingActionButton(
-                  onPressed: _decrementCounter,
-                  tooltip: 'Decrement',
-                  child: const Icon(Icons.remove),
-                )
-                ),
+                Visibility(
+                    visible: isNotZero,
+                    child: FloatingActionButton(
+                      onPressed: _decrementCounter,
+                      tooltip: 'Decrement',
+                      child: const Icon(Icons.remove),
+                    )),
                 const SizedBox(width: 100),
                 FloatingActionButton(
                   onPressed: _incrementCounter,
