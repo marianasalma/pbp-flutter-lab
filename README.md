@@ -25,3 +25,29 @@ Objek const harus diassign ke sebuah data yang sudah ada pada saat compiling, se
 - Menambahkan FloatingActionButton yang menyambung ke fungsi increment/decrement jika onPressed.
 
 ## Tugas 8
+
+**Jelaskan perbedaan Navigator.push dan Navigator.pushReplacement.**
+Navigator.push menambahkan route baru dan dapat kembali ke halaman sebelumnya menggunakan pop.
+Navigator.pushReplacement menggantikan route yang sekarang dan tidak dapat kembali ke halaman sebelumnya karena setelah push route yang diberikan, route yaang sebelumnya di-remove.
+
+**Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.**
+- Form yang menciptakan container untuk fields form
+- List yang menyimpan object Budget dan List yang menyimpan Widgets
+- Navigator untuk melakukan navigasi terhadap route atau halaman
+- Column dan Row untuk menampilkan widget secara vertical atau horizontal
+- DropdownButton untuk menciptakan dropdown
+
+**Sebutkan jenis-jenis event yang ada pada Flutter (contoh: onPressed).**
+- onSaved ketika data telah disimpan
+- onChanged ketika value field berubah
+- onPressed ketika sebuah button dipencet
+
+**Jelaskan bagaimana cara kerja Navigator dalam "mengganti" halaman dari aplikasi Flutter.**
+Widget Navigator menyimpan halaman atau route yang dinavigasi sebagai sebuah stack. Untuk memanggil halaman baru, Navigator diakses melalui BuildContext dan menanggil fungsi push atau pop.
+
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.**
+- Membuat halaman form
+- Handle input dari user menggunakan fields form dan menyimpannya ke dalam List object Budget
+- Membuat halaman data dan membuat list yang menyimpan widgets
+- Mengiterasikan List yang terdiri atas Budget dan membuat Container widget untuk setiap budget, ditampilkan pada halaman data
+- Melakukan routing untuk setiap halaman menggunakan Navigator dan mempassing data pada parameternya.

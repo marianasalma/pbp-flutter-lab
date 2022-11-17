@@ -135,7 +135,7 @@ class _MyFormPageState extends State<MyFormPage> {
                     // Validator sebagai validasi form
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return 'Nama lengkap tidak boleh kosong!';
+                        return 'Judul tidak boleh kosong!';
                       }
                       return null;
                     },
@@ -223,12 +223,12 @@ class _MyFormPageState extends State<MyFormPage> {
                                     const EdgeInsets.only(top: 20, bottom: 20),
                                 shrinkWrap: true,
                                 children: <Widget>[
-                                  Center(child: const Text('Informasi Data')),
+                                  Center(child: const Text('Success')),
                                   SizedBox(height: 20),
                                   // TODO: Munculkan informasi yang didapat dari form
                                   Center(
                                       child: Text(
-                                          'Judul :${widget.listBudget[0].judul}\nNominal :${widget.listBudget[0].nominal}\nJenis :${widget.listBudget[0].jenis}')),
+                                          'Data budget berhasil disimpan')),
                                   TextButton(
                                     onPressed: () {
                                       Navigator.pop(context);
