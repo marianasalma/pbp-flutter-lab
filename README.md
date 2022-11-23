@@ -51,3 +51,13 @@ Widget Navigator menyimpan halaman atau route yang dinavigasi sebagai sebuah sta
 - Membuat halaman data dan membuat list yang menyimpan widgets
 - Mengiterasikan List yang terdiri atas Budget dan membuat Container widget untuk setiap budget, ditampilkan pada halaman data
 - Melakukan routing untuk setiap halaman menggunakan Navigator dan mempassing data pada parameternya.
+
+## Tugas 9
+
+**Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?**
+
+**Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.**
+
+**Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.**
+
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.**

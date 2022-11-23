@@ -1,10 +1,13 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
-import 'main.dart';
+import '../main.dart';
 
 import 'package:validators/validators.dart';
+
+import 'watch.dart';
 
 var allBudgetData = [];
 
@@ -85,6 +88,19 @@ class _MyFormPageState extends State<MyFormPage> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => MyDataPage(
+                            listBudget: widget.listBudget,
+                          )),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('My Watch List'),
+              onTap: () {
+                // Route menu ke halaman utama
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyWatchList(
                             listBudget: widget.listBudget,
                           )),
                 );
@@ -336,6 +352,19 @@ class _MyDataPageState extends State<MyDataPage> {
             ),
             ListTile(
               title: const Text('Data Budget'),
+              onTap: () {
+                // Route menu ke halaman utama
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyDataPage(
+                            listBudget: widget.listBudget,
+                          )),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('My Watch List'),
               onTap: () {
                 // Route menu ke halaman utama
                 Navigator.pushReplacement(

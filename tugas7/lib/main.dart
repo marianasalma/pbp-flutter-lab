@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'form.dart';
+import 'page/form.dart';
+import 'page/watch.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -108,7 +110,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: const Text('Tambah Budget'),
               onTap: () {
-                // Route menu ke halaman form
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
@@ -121,13 +122,22 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: const Text('Data Budget'),
               onTap: () {
-                // Route menu ke halaman utama
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                       builder: (context) => MyDataPage(
                             listBudget: widget.listBudget,
                           )),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('My Watch List'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyWatchList(listBudget: widget.listBudget,)),
                 );
               },
             ),
