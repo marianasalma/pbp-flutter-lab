@@ -55,9 +55,25 @@ Widget Navigator menyimpan halaman atau route yang dinavigasi sebagai sebuah sta
 ## Tugas 9
 
 **Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?**
+Pengambilan daa JSON tanpa membuat model terlebih dahulu memungkinkan. Namun, data yang diambil tanpa model berarti tidak diinisiasi sebagai sebuah class dengan fields. Oleh karena itu, menjadi lebih inefisien.
 
 **Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.**
+- FutureBuilder : menambahkan widget berdasarkan data yang difetch menggunakan async function
+- persistentFooterButtons yang menampilkan button di paling bawah Scaffold
+- Row : menampilkan children widget secara horizontal
+- Column : menampilkan children widget secara vertical
+- GestureDetector : menciptakan widget yang mendeteksi gestures seperti onTap
+- Navigator : melakukan routing antar page
 
 **Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.**
+1. Menambahkan dependency http pada pubspec.yaml
+2. Membuat model dengan fields yang sesuai dari data JSON yang akan di-GET
+3. Melakukan fetch data dengan HTTP Request GET dan melakukan konversi data json menjadi object
+4. Menampilkan data menggunakan FutureBuilder
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.**
+1. Menambahkan dependency http dan melakukan import
+2. Membuat model WatchList
+3. Membuat page MyWatchList dan MyWatchListDetail, melakukan routing dan menyambungkan MyWatchList ke drawer
+4. Melakukan fecthing data JSON, melakukan konversi data JSON menjadi object WatchList
+5. Menampilkan data yang telah dikonversi ke aplikasi dengan FutureBuilder 
